@@ -424,6 +424,16 @@ async def task():
 				print("명치복구완료!")
 
 	while not client.is_closed():
+		
+		if chflg == 1 : 
+		if voice_client1.is_connected() == False :
+			voice_client1 = await client.get_channel(basicSetting[6]).connect(reconnect=True)
+			if voice_client1.is_connected() :
+				await dbLoad()
+				await client.get_channel(channel).send( '< 인중  >', tts=False)
+				print("인중복구완료!")
+
+	while not client.is_closed():
 		############ 워닝잡자! ############
 		if log_stream.getvalue().find("Awaiting") != -1:
 			log_stream.truncate(0)
@@ -1504,7 +1514,7 @@ while True:
 				command_list += command[4] + '\n'     #!소환
 				command_list += command[5] + '\n'     #!불러오기
 				command_list += command[6] + '\n'     #!초기화
-				command_list += command[7] + '\n'     #!명치
+				command_list += command[7] + '\n'     #!명치,!인중
 				command_list += command[8] + '\n'     #!재시작
 				command_list += command[9] + '\n'     #!미예약
 				command_list += command[10] + ' [인원] [금액]\n'     #!분배
@@ -2233,6 +2243,23 @@ while True:
 						bossMungFlag[i] = False					
 				await dbSave()
 				print("명치!")
+				await voice_client1.disconnect()
+				#client.clear()
+				raise SystemExit
+
+				################ 인중쎄 ################ 
+
+			if message.content == command[7]:
+				await client.get_channel(channel).send( '< 보탐봇 인중 딱 대라 >', tts=False)
+				for i in range(bossNum):
+					if bossMungFlag[i] == True:
+						bossTimeString[i] = tmp_bossTime[i].strftime('%H:%M:%S')
+						bossDateString[i] = tmp_bossTime[i].strftime('%Y-%m-%d')
+						bossFlag[i] = False
+						bossFlag0[i] = False
+						bossMungFlag[i] = False					
+				await dbSave()
+				print("인중!")
 				await voice_client1.disconnect()
 				#client.clear()
 				raise SystemExit
