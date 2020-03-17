@@ -1,29 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@wotjr1466 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-wotjr1466
-/
-Test
-1
-00
- Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights Settings
-Test/test_init_final.py / 
-@wotjr1466 wotjr1466 Update test_init_final.py
-33ebc95 10 days ago
-2382 lines (1995 sloc)  92.5 KB
-  
-You're using code navigation to jump to definitions or references.
-Learn more or give us feedback
 # -*- coding: utf-8 -*- 
 
 ################ Server V15.1 #####################
@@ -2154,7 +2128,7 @@ while True:
 					fixedboss_information[0] = '``` ```'
 		
 				embed = discord.Embed(
-						title = "----- 고 정 픽 -----",
+						title = "----- 고 정 보 스 -----",
 						description= fixedboss_information[0],
 						color=0x0000ff
 						)
@@ -2406,15 +2380,3 @@ while True:
 
 	print("Bot restarting")
 	client = discord.Client(loop=client.loop)
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
