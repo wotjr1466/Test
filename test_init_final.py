@@ -1,3 +1,29 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@wotjr1466 
+Learn Git and GitHub without any code!
+Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+
+
+wotjr1466
+/
+Test
+1
+00
+ Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights Settings
+Test/test_init_final.py / 
+@wotjr1466 wotjr1466 Update test_init_final.py
+33ebc95 10 days ago
+2382 lines (1995 sloc)  92.5 KB
+  
+You're using code navigation to jump to definitions or references.
+Learn more or give us feedback
 # -*- coding: utf-8 -*- 
 
 ################ Server V15.1 #####################
@@ -420,18 +446,8 @@ async def task():
 			voice_client1 = await client.get_channel(basicSetting[6]).connect(reconnect=True)
 			if voice_client1.is_connected() :
 				await dbLoad()
-				await client.get_channel(channel).send( '< 언젠간 복수할테다! >', tts=False)
+				await client.get_channel(channel).send( '< 다시 왔습니다! >', tts=False)
 				print("명치복구완료!")
-
-	while not client.is_closed():
-		
-		if chflg == 1 : 
-		if voice_client1.is_connected() == False :
-			voice_client1 = await client.get_channel(basicSetting[6]).connect(reconnect=True)
-			if voice_client1.is_connected() :
-				await dbLoad()
-				await client.get_channel(channel).send( '< 하지만 극뽁~ >', tts=False)
-				print("인중복구완료!")
 
 	while not client.is_closed():
 		############ 워닝잡자! ############
@@ -1514,7 +1530,7 @@ while True:
 				command_list += command[4] + '\n'     #!소환
 				command_list += command[5] + '\n'     #!불러오기
 				command_list += command[6] + '\n'     #!초기화
-				command_list += command[7] + '\n'     #!명치,!인중
+				command_list += command[7] + '\n'     #!명치
 				command_list += command[8] + '\n'     #!재시작
 				command_list += command[9] + '\n'     #!미예약
 				command_list += command[10] + ' [인원] [금액]\n'     #!분배
@@ -2233,7 +2249,7 @@ while True:
 			################ 명존쎄 ################ 
 
 			if message.content == command[7]:
-				await client.get_channel(channel).send( '< 명치의 아픔을 알리지 말라... >', tts=False)
+				await client.get_channel(channel).send( '< 보탐봇 명치 맞고 숨 고르기 중! 잠시만요! >', tts=False)
 				for i in range(bossNum):
 					if bossMungFlag[i] == True:
 						bossTimeString[i] = tmp_bossTime[i].strftime('%H:%M:%S')
@@ -2243,23 +2259,6 @@ while True:
 						bossMungFlag[i] = False					
 				await dbSave()
 				print("명치!")
-				await voice_client1.disconnect()
-				#client.clear()
-				raise SystemExit
-
-				################ 인중쎄 ################ 
-
-			if message.content == command[7]:
-				await client.get_channel(channel).send( '< 인중을 때리다니 상상도 못했다! >', tts=False)
-				for i in range(bossNum):
-					if bossMungFlag[i] == True:
-						bossTimeString[i] = tmp_bossTime[i].strftime('%H:%M:%S')
-						bossDateString[i] = tmp_bossTime[i].strftime('%Y-%m-%d')
-						bossFlag[i] = False
-						bossFlag0[i] = False
-						bossMungFlag[i] = False					
-				await dbSave()
-				print("인중!")
 				await voice_client1.disconnect()
 				#client.clear()
 				raise SystemExit
@@ -2407,3 +2406,15 @@ while True:
 
 	print("Bot restarting")
 	client = discord.Client(loop=client.loop)
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
