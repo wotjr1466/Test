@@ -420,7 +420,7 @@ async def task():
 			voice_client1 = await client.get_channel(basicSetting[6]).connect(reconnect=True)
 			if voice_client1.is_connected() :
 				await dbLoad()
-				await client.get_channel(channel).send( '< 다시 왔습니다! >', tts=False)
+				await client.get_channel(channel).send( '< 언젠간 복수할테다! >', tts=False)
 				print("명치복구완료!")
 
 	while not client.is_closed():
@@ -430,7 +430,7 @@ async def task():
 			voice_client1 = await client.get_channel(basicSetting[6]).connect(reconnect=True)
 			if voice_client1.is_connected() :
 				await dbLoad()
-				await client.get_channel(channel).send( '< 인중  >', tts=False)
+				await client.get_channel(channel).send( '< 하지만 극뽁~ >', tts=False)
 				print("인중복구완료!")
 
 	while not client.is_closed():
@@ -2233,7 +2233,7 @@ while True:
 			################ 명존쎄 ################ 
 
 			if message.content == command[7]:
-				await client.get_channel(channel).send( '< 보탐봇 명치 맞고 숨 고르기 중! 잠시만요! >', tts=False)
+				await client.get_channel(channel).send( '< 명치의 아픔을 알리지 말라... >', tts=False)
 				for i in range(bossNum):
 					if bossMungFlag[i] == True:
 						bossTimeString[i] = tmp_bossTime[i].strftime('%H:%M:%S')
@@ -2250,7 +2250,7 @@ while True:
 				################ 인중쎄 ################ 
 
 			if message.content == command[7]:
-				await client.get_channel(channel).send( '< 보탐봇 인중 딱 대라 >', tts=False)
+				await client.get_channel(channel).send( '< 인중을 때리다니 상상도 못했다! >', tts=False)
 				for i in range(bossNum):
 					if bossMungFlag[i] == True:
 						bossTimeString[i] = tmp_bossTime[i].strftime('%H:%M:%S')
